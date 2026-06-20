@@ -1,0 +1,701 @@
+/* ============================================
+   LOGIN PAGE - NETFLIX STYLE
+   Complete CSS File
+   ============================================ */
+
+/* ---------- BASE CONTAINER ---------- */
+.login {
+    height: 100vh;
+    background-image: 
+        linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.8) 100%), 
+        linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, transparent 50%, rgba(0, 0, 0, 0.6) 100%),
+        url(/background_banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px 8%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ---------- ANIMATED OVERLAY ---------- */
+.login::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ---------- LOGO ---------- */
+.login-logo {
+    width: 167px;
+    height: 45px;
+    z-index: 1;
+    position: relative;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.login-logo:hover {
+    transform: scale(1.02);
+}
+
+/* ---------- LOGIN FORM CONTAINER ---------- */
+.login-form {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 8px;
+    padding: 68px 68px 40px;
+    margin: auto;
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    animation: slideUp 0.6s ease-out;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- FORM HEADING ---------- */
+.login-form h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    color: #fff;
+    letter-spacing: -0.5px;
+    font-family: 'Netflix Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ---------- ERROR MESSAGE ---------- */
+.login-form .error-message {
+    background: #e50914;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    animation: shake 0.5s ease-in-out;
+}
+
+/* ---------- FORM INPUTS ---------- */
+.login-form input {
+    width: 100%;
+    height: 50px;
+    background: #333;
+    color: #fff;
+    margin: 8px 0;
+    border: 0;
+    outline: 0;
+    border-radius: 4px;
+    padding: 16px 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.login-form input:focus {
+    background: #454545;
+    border-bottom: 2px solid #e50914;
+    box-shadow: 0 2px 8px rgba(229, 9, 20, 0.2);
+}
+
+.login-form input::placeholder {
+    color: #8c8c8c;
+    font-size: 14px;
+}
+
+.login-form input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #333 inset !important;
+    -webkit-text-fill-color: #fff !important;
+}
+
+/* ---------- PASSWORD WRAPPER ---------- */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    padding-right: 60px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #8c8c8c;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: #fff;
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+.login-form button {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    padding: 16px;
+    background: #e50914;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+}
+
+/* Button shine effect */
+.login-form button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.login-form button:hover::after {
+    left: 100%;
+}
+
+.login-form button:hover {
+    background: #f40612;
+    transform: scale(1.01);
+    box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
+}
+
+.login-form button:active {
+    transform: scale(0.98);
+}
+
+/* ---------- BUTTON LOADING STATE ---------- */
+.login-form button.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.login-form button.loading::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+}
+
+/* ---------- FORM HELP (Remember & Help) ---------- */
+.form-help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #b3b3b3;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.remember:hover {
+    color: #fff;
+}
+
+.remember input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: #e50914;
+    border-radius: 2px;
+}
+
+.form-help a {
+    color: #b3b3b3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.form-help a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* ---------- DIVIDER ---------- */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #737373;
+    font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #333;
+}
+
+.divider::before {
+    margin-right: 16px;
+}
+
+.divider::after {
+    margin-left: 16px;
+}
+
+/* ---------- SOCIAL LOGIN ---------- */
+.social-login {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.social-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #666;
+}
+
+.social-btn.google {
+    border-color: #4285f4;
+}
+
+.social-btn.google:hover {
+    background: rgba(66, 133, 244, 0.1);
+}
+
+.social-btn.github {
+    border-color: #6e7681;
+}
+
+.social-btn.github:hover {
+    background: rgba(110, 118, 129, 0.1);
+}
+
+/* ---------- FORM SWITCH (Sign Up/In Toggle) ---------- */
+.form-switch {
+    margin-top: 40px;
+    color: #737373;
+    font-size: 16px;
+}
+
+.form-switch span {
+    color: #fff;
+    margin-left: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.form-switch span:hover {
+    text-decoration: underline;
+    color: #e50914;
+}
+
+/* ---------- CAPTCHA TEXT ---------- */
+.login-form .captcha-text {
+    margin-top: 16px;
+    color: #8c8c8c;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.login-form .captcha-text a {
+    color: #0071eb;
+    text-decoration: none;
+}
+
+.login-form .captcha-text a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- GENERAL ---------- */
+.login-form p {
+    margin: 0;
+}
+
+/* ---------- SCROLLBAR STYLING ---------- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* ---------- TABLET (max-width: 740px) ---------- */
+@media (max-width: 740px) {
+    .login {
+        padding: 20px 5%;
+    }
+
+    .login-logo {
+        width: 120px;
+        height: 33px;
+    }
+
+    .login-form {
+        padding: 40px 24px 30px;
+        margin-top: 20px;
+        max-width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    .login-form h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .form-help {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .social-login {
+        flex-direction: column;
+    }
+}
+
+/* ---------- MOBILE (max-width: 480px) ---------- */
+@media (max-width: 480px) {
+    .login {
+        padding: 10px 4%;
+        height: 100vh;
+    }
+
+    .login-logo {
+        width: 100px;
+        height: 27px;
+    }
+
+    .login-form {
+        padding: 30px 16px 24px;
+        border-radius: 4px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .login-form h1 {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .login-form input {
+        height: 44px;
+        padding: 12px 16px;
+        font-size: 14px;
+        margin: 6px 0;
+    }
+
+    .login-form button {
+        padding: 14px;
+        font-size: 14px;
+        margin-top: 16px;
+    }
+
+    .form-switch {
+        font-size: 14px;
+        margin-top: 24px;
+    }
+
+    .login-form .captcha-text {
+        font-size: 12px;
+    }
+
+    .social-btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .divider {
+        margin: 16px 0;
+        font-size: 11px;
+    }
+}
+
+/* ---------- SMALL MOBILE (max-width: 360px) ---------- */
+@media (max-width: 360px) {
+    .login-form {
+        padding: 20px 12px 18px;
+    }
+
+    .login-form h1 {
+        font-size: 20px;
+    }
+
+    .login-form input {
+        height: 38px;
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    .login-form button {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .remember {
+        font-size: 12px;
+    }
+
+    .form-help a {
+        font-size: 12px;
+    }
+}
+
+/* ---------- LANDSCAPE MODE ---------- */
+@media (max-height: 600px) and (orientation: landscape) {
+    .login {
+        padding: 10px 5%;
+        height: 100vh;
+        min-height: 100vh;
+    }
+
+    .login-logo {
+        width: 100px;
+        height: 27px;
+    }
+
+    .login-form {
+        padding: 20px 24px 16px;
+        margin-top: 10px;
+        max-width: 400px;
+    }
+
+    .login-form h1 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .login-form input {
+        height: 36px;
+        padding: 8px 16px;
+        font-size: 13px;
+        margin: 4px 0;
+    }
+
+    .login-form button {
+        padding: 10px;
+        font-size: 13px;
+        margin-top: 12px;
+    }
+
+    .form-switch {
+        margin-top: 16px;
+        font-size: 13px;
+    }
+
+    .form-help {
+        margin-top: 8px;
+    }
+
+    .social-login {
+        margin-top: 12px;
+    }
+
+    .divider {
+        margin: 12px 0;
+    }
+
+    .login-form .captcha-text {
+        margin-top: 10px;
+        font-size: 11px;
+    }
+}
+
+/* ---------- HIGH DPI SCREENS ---------- */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .login {
+        background-image: 
+            linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.8) 100%), 
+            linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, transparent 50%, rgba(0, 0, 0, 0.6) 100%),
+            url(/background_banner.jpg);
+    }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .login-form {
+        animation: none;
+    }
+
+    .login-form .error-message {
+        animation: none;
+    }
+
+    .login-form button::after {
+        display: none;
+    }
+
+    .login-logo {
+        transition: none;
+    }
+
+    .login-logo:hover {
+        transform: none;
+    }
+
+    .login-form button:hover {
+        transform: none;
+    }
+
+    .login-form button:active {
+        transform: none;
+    }
+
+    .login-form button.loading::before {
+        animation: none;
+    }
+
+    .social-btn,
+    .form-help a,
+    .form-switch span,
+    .remember,
+    .login-form input {
+        transition: none;
+    }
+}
+
+/* ---------- DARK MODE SUPPORT ---------- */
+@media (prefers-color-scheme: dark) {
+    .login {
+        background-color: #000;
+    }
+}
+
+/* ---------- PRINT STYLES ---------- */
+@media print {
+    .login {
+        height: auto;
+        background: #000 !important;
+        padding: 20px;
+    }
+
+    .login-form {
+        box-shadow: none;
+        border: 1px solid #333;
+    }
+
+    .login-form button {
+        display: none;
+    }
+
+    .social-login {
+        display: none;
+    }
+
+    .form-help a {
+        display: none;
+    }
+}
+/* Netflix loading spinner */
+.login-form img {
+  width: 50px;
+  height: 50px;
+  margin-top: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  animation: spinFade 1.2s ease-in-out infinite;
+}
+
+/* Optional smooth animation effect */
+@keyframes spinFade {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.7;
+  }
+}
