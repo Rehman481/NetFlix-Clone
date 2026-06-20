@@ -68,7 +68,6 @@ src/
 ---
 
 ## 🎯 Future Features
-- 🎥 TMDB movie API integration
 - ❤️ Favorites / Watchlist
 - 🔍 Search movies
 - 👤 User profile
@@ -78,7 +77,7 @@ src/
 
 ## 👨‍💻 Author
 Your Name  
-GitHub: https://github.com/your-username
+GitHub: https://github.com/Rehman481
 
 ---
 
