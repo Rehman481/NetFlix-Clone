@@ -1,16 +1,86 @@
-# React + Vite
+# 🎬 Netflix Clone (React + Firebase)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Netflix Clone built using React.js and Firebase Authentication with a modern UI and full login system.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
+- 🔐 Firebase Authentication (Signup / Login / Logout)
+- ⚡ Secure Email/Password Login
+- 🎬 Netflix UI Clone
+- 📱 Fully Responsive Design
+- 🔔 Toast notifications (success & error)
+- 🎨 Clean UI like Netflix
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
+- React.js
+- Firebase Authentication
+- React Router
+- React Toastify
+- Vite
+- CSS
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Installation
+
+```bash
+git clone https://github.com/your-username/netflix-clone.git
+cd netflix-clone
+npm install
+npm run dev
+```
+
+---
+
+## 🔥 Firebase Setup
+
+1. Create Firebase project: https://firebase.google.com/
+2. Enable **Email/Password Authentication**
+3. Replace config in `src/firebase.js`:
+
+```js
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+```
+
+---
+
+## 📁 Folder Structure
+
+```
+src/
+├── components/
+├── pages/
+├── firebase.js
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## 🎯 Future Features
+- 🎥 TMDB movie API integration
+- ❤️ Favorites / Watchlist
+- 🔍 Search movies
+- 👤 User profile
+- 🌙 Dark mode toggle
+
+---
+
+## 👨‍💻 Author
+Your Name  
+GitHub: https://github.com/your-username
+
+---
+
+## 📜 License
+This project is open source and free to use.
