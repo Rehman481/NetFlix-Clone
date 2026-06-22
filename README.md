@@ -27,7 +27,7 @@ A Netflix Clone built using React.js and Firebase Authentication with a modern U
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/netflix-clone.git
+git clone https://github.com/Rehman481Nnetflix-Clone.git
 cd netflix-clone
 npm install
 npm run dev
@@ -76,7 +76,7 @@ src/
 ---
 
 ## 👨‍💻 Author
-Your Name  
+Your Name:Rehman Asif  
 GitHub: https://github.com/Rehman481
 
 ---
